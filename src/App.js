@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import Jsx from "./containers/Jsx";
+import DataBinding from './containers/DataBinding';
+import Users from './containers/user'
+import {Routes,Route,NavLink} from 'react-router-dom';
 
-function App() {
+function App(){
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <nav className = "navbar navbar-expand navbar-light bg-light">
+        <ul className = "nav navbar-nav">
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/">Jsx</NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink className= "nav-link" to ="/binding">DataBinding</NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/users">Users</NavLink>
+          </li>
+        </ul>
+      </nav>
+      <div className = "container">
+      <Routes>
+        <Route path= "/" element={<Jsx/>}></Route>
+        <Route path= "/binding" element={<DataBinding/>}></Route>
+        <Route path= "/Users" element={<Users />}></Route>
+      </Routes>
+      </div>
     </div>
-  );
+  )
 }
 
 export default App;
